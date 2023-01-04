@@ -80,19 +80,19 @@ public class Plateau extends HashMap<Coords, Tuile> {
 					SideDominos e = (SideDominos) t.getE();
 					SideDominos s = (SideDominos) t.getS();
 
-					acc1 += "X-" + n.getTab()[0] + "-" + n.getTab()[1] + "-" + n.getTab()[2] + "-X ";
-					acc2 += w.getTab()[0] + "       " + e.getTab()[0] + " ";
-					acc3 += w.getTab()[1] + "       " + e.getTab()[1] + " ";
-					acc4 += w.getTab()[2] + "       " + e.getTab()[2] + " ";
-					acc5 += "X-" + s.getTab()[0] + "-" + s.getTab()[1] + "-" + s.getTab()[2] + "-X ";
+					acc1 += "\033[0;94mX-" + n.getTab()[0] + "-" + n.getTab()[1] + "-" + n.getTab()[2] + "-X\033[0m ";
+					acc2 += "\033[0;94m" + w.getTab()[0] + "       " + e.getTab()[0] + " ";
+					acc3 += "\033[0;94m" +w.getTab()[1] + "       " + e.getTab()[1] + " ";
+					acc4 += "\033[0;94m" +w.getTab()[2] + "       " + e.getTab()[2] + " ";
+					acc5 += "\033[0;94mX-" + s.getTab()[0] + "-" + s.getTab()[1] + "-" + s.getTab()[2] + "-X\033[0m ";
 				} else {
 
 					if (isReachable(new Coords(i, j))) {
-						acc1 += "********* ";
-						acc2 += "*       * ";
-						acc4 += "*       * ";
-						acc3 += "*       * ";
-						acc5 += "********* ";
+						acc1 += "\033[0;32m*********\033[0m ";
+						acc2 += "\033[0;32m*       *\033[0m ";
+						acc4 += "\033[0;32m*       *\033[0m ";
+						acc3 += "\033[0;32m*       *\033[0m ";
+						acc5 += "\033[0;32m*********\033[0m ";
 					}
 
 					else {

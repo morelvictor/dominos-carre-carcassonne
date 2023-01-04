@@ -20,19 +20,19 @@ public class TuileDominos extends Tuile{
     }
 
 	public String toString() {
-		String acc = "X";
+		String acc = "\033[0;35mX";
 		for (int i = 0; i < 3; i++) {
 			acc +="-" + ((SideDominos) n).getTab()[i];
 		}
-		acc += "-X\n";
+		acc += "-X\033[0m\n\033[0;35m";
 		for (int i = 0; i < 3; i++) {
-			acc += ((SideDominos) w).getTab()[i] + "       " + ((SideDominos) e).getTab()[i] + "\n";
+			acc += ((SideDominos) w).getTab()[i] + "       " + ((SideDominos) e).getTab()[i] + "\033[0m\n\033[0;35m";
 		}
-		acc += "X";
+		acc += "\033[0;35mX";
 		for (int i = 0; i < 3; i++) {
-			acc += "-" + ((SideDominos) s).getTab()[i];
+			acc += "-"+((SideDominos) s).getTab()[i];
 		}
-		acc += "-X";
+		acc += "-X\033[0m";
 		return acc;
 	}
 
