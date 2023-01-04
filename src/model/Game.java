@@ -10,6 +10,11 @@ public class Game {
 	public ArrayList<Player> players;
 	int currentPlayer = -1;
 
+	public void load() {
+		plateau.put(new Coords(0, 0), sac.pop());
+		iaLoader();
+	}
+
 	public ArrayList<Player> getPlayers() {
 		return players;
 	}
@@ -47,16 +52,45 @@ public class Game {
 					current.addPoints(p);
 					sac.pop().setPlacer(current);
 					System.out.println(current.getName() + " -> " + current.getPoints());
+					iaLoader();
 				}
 			}
 		}
 		return p;
 	}
 
+	public void iaLoader() {
+		Player next = peekPlayer();
+		if (next.isAi())
+			ai();
+		currentPlayer = (((currentPlayer - 1) % players.size()) + players.size()) % players.size();
+	}
+
+	public void ai() {
+		System.out.println("Ia joue");
+		for (int ii = 0; ii < 4; ii++) {
+			for (int x = plateau.min_x - 1; x <= plateau.max_x + 1; x++) {
+				for (int y = plateau.min_y - 1; y <= plateau.max_y + 1; y++) {
+					Coords c = new Coords(x, y);
+					System.out.println(c);
+					if (plateau.isValid(c, sac.peek()) > -1) {
+						place(c);
+						System.out.println("ok");
+						return;
+					}
+				}
+			}
+			sac.peek().rotate();
+		}
+		System.out.println(sac.peek());
+		defausser();
+	}
+
 	public void defausser() {
 		if (!sac.empty()) {
 			sac.pop();
 			nextPlayer();
+			iaLoader();
 		}
 	}
 

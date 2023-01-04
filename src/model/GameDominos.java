@@ -3,12 +3,12 @@ package model;
 import java.util.ArrayList;
 import java.util.Stack;
 
-public class GameDominos extends Game{
-    static final int min_range = 1;
-	static final int max_range = 2;
-    static final int num_tuile = 15;
+public class GameDominos extends Game {
+	static final int min_range = 1;
+	static final int max_range = 1;
+	static final int num_tuile = 15;
 
-    public GameDominos() {
+	public GameDominos() {
 		sac = new Stack<>();
 		players = new ArrayList<>();
 		players.add(new Player("Victor"));
@@ -16,13 +16,15 @@ public class GameDominos extends Game{
 			sac.push(Utils.randomTuile(min_range, max_range));
 		}
 		plateau = sac.empty() ? null : new Plateau(sac.pop());
+		load();
 	}
 
-    public GameDominos(ArrayList<Player> players) {
+	public GameDominos(ArrayList<Player> players) {
 		this();
 		this.players = players;
+		load();
 	}
-	
+
 	@Override
 	public Plateau getPlateau() {
 		return super.getPlateau();
@@ -39,7 +41,6 @@ public class GameDominos extends Game{
 
 	@Override
 	public ArrayList<Player> getPlayers() {
-		// TODO Auto-generated method stub
 		return super.getPlayers();
 	}
 }

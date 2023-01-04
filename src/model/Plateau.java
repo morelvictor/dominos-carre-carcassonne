@@ -11,12 +11,6 @@ public class Plateau extends HashMap<Coords, Tuile> {
 
 	public Plateau() {
 		super();
-		int[] n = { 3, 0, 0 };
-		int[] e = { 4, 0, 0 };
-		int[] s = { 1, 0, 0 };
-		int[] w = { 2, 0, 0 };
-		TuileDominos init = new TuileDominos(n, e, s, w);
-		put(new Coords(0, 0), init);
 	}
 
 	public Plateau(Tuile t) {
@@ -69,7 +63,7 @@ public class Plateau extends HashMap<Coords, Tuile> {
 		System.out.println(acc);
 
 		for (int j = min_y - 1; j <= max_y + 1; j++) {
-			
+
 			for (int i = min_x - 1; i <= max_x + 1; i++) {
 
 				if (!isFree(new Coords(i, j))) {
@@ -82,8 +76,8 @@ public class Plateau extends HashMap<Coords, Tuile> {
 
 					acc1 += "\033[0;94mX-" + n.getTab()[0] + "-" + n.getTab()[1] + "-" + n.getTab()[2] + "-X\033[0m ";
 					acc2 += "\033[0;94m" + w.getTab()[0] + "       " + e.getTab()[0] + " ";
-					acc3 += "\033[0;94m" +w.getTab()[1] + "       " + e.getTab()[1] + " ";
-					acc4 += "\033[0;94m" +w.getTab()[2] + "       " + e.getTab()[2] + " ";
+					acc3 += "\033[0;94m" + w.getTab()[1] + "       " + e.getTab()[1] + " ";
+					acc4 += "\033[0;94m" + w.getTab()[2] + "       " + e.getTab()[2] + " ";
 					acc5 += "\033[0;94mX-" + s.getTab()[0] + "-" + s.getTab()[1] + "-" + s.getTab()[2] + "-X\033[0m ";
 				} else {
 
