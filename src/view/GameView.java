@@ -4,10 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import model.Game;
-import model.GameDominos;
 import model.Coords;
-import model.Player;
-import java.util.ArrayList;
 
 public class GameView extends JPanel {
     Game game;
@@ -67,27 +64,20 @@ public class GameView extends JPanel {
     }
 
     public void defausser() {
-        System.out.println("defausse");
         game.defausser(); // Ok
         pioche.update();
     }
 
     public void rotate() {
-        System.out.println("rotate");
         game.rotatePioche();
         pioche.update();
     }
 
     public void place(Coords c) {
-        System.out.println("Allooooo");
         game.place(c);
         plateauView.update();
         pioche.update();
         tour.setText(game.peekPlayer().getName());
         scoreboard.update();
-        System.out.println("minx:" + game.plateau.min_x);
-        System.out.println("miny:" + game.plateau.min_y);
-        System.out.println("maxx:" + game.plateau.max_x);
-        System.out.println("maxy:" + game.plateau.max_y);
     }
 }

@@ -21,16 +21,16 @@ public class TuileView extends UpdatableView {
     public TuileView() {
     }
 
-    public void resetT(){
-        if(model instanceof TuileDominos){
+    public void resetT() {
+        if (model instanceof TuileDominos) {
             t = new TuileDominosView((TuileDominos) model);
-        }else if (model instanceof TuileCarcassone) {
+        } else if (model instanceof TuileCarcassone) {
             t = new TuileCarcassonneView((TuileCarcassone) model);
         }
     }
 
     public TuileView(boolean isReachable) {
-        add(new TuileDominosView(isReachable));
+        add(new TuileDominosView((Boolean) isReachable));
     }
 
     @Override
