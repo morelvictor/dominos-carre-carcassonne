@@ -61,7 +61,6 @@ public class Utils {
 	}
 
 	public static Color randomColor() {
-		Random rand = new Random();
 		int r = random(128, 255);
 		int g = random(128, 255);
 		int b = random(128, 255);
