@@ -1,14 +1,24 @@
-# Projet de POO
+# Projet de POO 2022
 
-## Run:
-
-With **Ant**:
+## Usage
+### Version graphique
+Si vous avez ant, il suffit de faire la commande:
 ```bash
 ant
 ```
 
-Without Ant:
-Go to src directory and execute the following command
+Sinon, allez dans le répertoire src et faites la commande:
 ```bash
 javac App.java && java App
+```
+
+### Version terminale
+Si vous avez ant, il suffit de faire la commande:
+```bash
+ant term
+```
+
+Sinon, allez dans le répertoire src et faites la commande:
+```bash
+javac App.java && java App term
 ```
