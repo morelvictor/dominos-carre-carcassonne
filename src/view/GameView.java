@@ -65,19 +65,25 @@ public class GameView extends JPanel {
 
     public void defausser() {
         game.defausser(); // Ok
+        plateauView.update();
         pioche.update();
+        tour.setText("C'est au tour de: " + game.peekPlayer().getName());
+        scoreboard.update();
     }
 
     public void rotate() {
         game.rotatePioche();
+        plateauView.update();
         pioche.update();
+        tour.setText("C'est au tour de: " + game.peekPlayer().getName());
+        scoreboard.update();
     }
 
     public void place(Coords c) {
         game.place(c);
         plateauView.update();
         pioche.update();
-        tour.setText(game.peekPlayer().getName());
+        tour.setText("C'est au tour de: " + game.peekPlayer().getName());
         scoreboard.update();
     }
 }
