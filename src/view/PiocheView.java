@@ -12,6 +12,20 @@ public class PiocheView extends TuileView {
         //super(pioche.empty() ? new TuileDominos(false) : pioche.peek());
         this.pioche = pioche;
         
+        /*if(!pioche.empty()){
+            if(pioche.peek() instanceof TuileDominos)
+                tuile = new TuileDominosView((TuileDominos) pioche.peek());
+            else
+                tuile = new TuileCarcassonneView((TuileCarcassonne) pioche.peek());
+        }
+        if(tuile != null)
+            add(tuile);
+            */
+        update();
+    }
+
+    public void update() {
+        removeAll();
         if(!pioche.empty()){
             if(pioche.peek() instanceof TuileDominos)
                 tuile = new TuileDominosView((TuileDominos) pioche.peek());
@@ -19,11 +33,10 @@ public class PiocheView extends TuileView {
                 tuile = new TuileCarcassonneView((TuileCarcassonne) pioche.peek());
         }
         if(tuile != null)
-        add(tuile);
-        update();
-    }
-
-    public void update() {
+            add(tuile);
+        revalidate();
+        repaint();
+        /*
         if(tuile !=  null){
         model = pioche.empty() ? new TuileDominos(false) : pioche.peek();
         if(tuile instanceof TuileCarcassonneView)
@@ -31,5 +44,6 @@ public class PiocheView extends TuileView {
         else
             ((TuileDominosView) tuile).update();
         }
+        */
     }
 }

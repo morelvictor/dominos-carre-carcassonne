@@ -91,11 +91,16 @@ public class Game {
 			sac.pop();
 			nextPlayer();
 			iaLoader();
+		}else{
+			System.out.println("Yapu");
 		}
 	}
 
 	public void rotatePioche() {
+		if(!sac.empty())
 		sac.peek().rotate();
+		else
+		System.out.println("yapu");
 	}
 
 }
