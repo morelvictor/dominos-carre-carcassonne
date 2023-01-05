@@ -63,6 +63,10 @@ public class GameView extends JPanel {
         add(container, BorderLayout.LINE_END);
     }
 
+    public Game getGame() {
+        return game;
+    }
+
     public void defausser() {
         game.defausser(); // Ok
         plateauView.update();
@@ -85,5 +89,6 @@ public class GameView extends JPanel {
         pioche.update();
         tour.setText("C'est au tour de: " + game.peekPlayer().getName());
         scoreboard.update();
+        game.setLastTuile(game.getPlateau().getTuile(c));
     }
 }

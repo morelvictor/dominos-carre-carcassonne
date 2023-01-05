@@ -9,6 +9,7 @@ public class Game {
 	public Stack<Tuile> sac;
 	public ArrayList<Player> players;
 	int currentPlayer = -1;
+	Tuile lastTuile;
 
 	public void load() {
 		plateau.put(new Coords(0, 0), sac.pop());
@@ -98,6 +99,7 @@ public class Game {
 		}else{
 			System.out.println("Yapu");
 		}
+		lastTuile = null;
 	}
 
 	public void rotatePioche() {
@@ -107,4 +109,12 @@ public class Game {
 			System.out.println("yapu");
 	}
 
+	public Tuile getLastTuile() {
+		return lastTuile;
+	}
+
+	public void setLastTuile(Tuile lastTuile) {
+		this.lastTuile = lastTuile;
+	}
+	
 }

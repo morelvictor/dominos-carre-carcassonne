@@ -9,6 +9,14 @@ public class Coords {
 		this.y = y;
 	}
 
+	public int getX() {
+		return x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
 	public boolean equals(Object other) {
 		if (!(other instanceof Coords))
 			return false;
@@ -24,4 +32,5 @@ public class Coords {
 	public String toString() {
 		return "x: " + x + " y:" + y;
 	}
+
 }
