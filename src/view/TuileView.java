@@ -1,9 +1,13 @@
 package view;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.event.*;
+
 
 import java.awt.*;
 import model.*;
+import model.TuileCarcassonne.PartisanListener;
 
 public class TuileView extends UpdatableView {
     Dimension preferredSize = new Dimension(100, 100);
@@ -16,7 +20,7 @@ public class TuileView extends UpdatableView {
         model = m;
         resetT();
         add(t);
-    }
+        }
 
     public TuileView() {
     }
@@ -24,9 +28,12 @@ public class TuileView extends UpdatableView {
     public void resetT() {
         if (model instanceof TuileDominos) {
             t = new TuileDominosView((TuileDominos) model);
-        } else if (model instanceof TuileCarcassone) {
-            t = new TuileCarcassonneView((TuileCarcassone) model);
+        } else if (model instanceof TuileCarcassonne) {
+            t = new TuileCarcassonneView((TuileCarcassonne) model);
+            t.addMouseListener(new PartisanListener());
         }
+        
+        setBorder(BorderFactory.createLineBorder(Color.RED));
     }
 
     public TuileView(boolean isReachable) {
@@ -49,5 +56,8 @@ public class TuileView extends UpdatableView {
         add(t);
         revalidate();
         repaint();
+        System.out.println(getWidth() + "; " + getHeight());
     }
+
+    
 }
