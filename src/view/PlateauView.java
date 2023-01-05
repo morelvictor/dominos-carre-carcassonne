@@ -29,19 +29,19 @@ public class PlateauView extends JPanel {
                 Coords coord = new Coords(x, y);
                 TuileView tuile;
                 if (!model.isFree(coord)) {
-                    if(model.get(coord) instanceof TuileDominos){
-                        tuile = new TuileDominosView((TuileDominos) model.get(coord));           
-                    }
-                    else
+                    if (model.get(coord) instanceof TuileDominos) {
+                        tuile = new TuileDominosView((TuileDominos) model.get(coord));
+                    } else {
                         tuile = new TuileCarcassonneView((TuileCarcassonne) model.get(coord));
                         tuile.addMouseListener(new PartisanListener((TuileCarcassonneView) tuile, view));
+                    }
                 } else {
                     if (model.isReachable(coord)) {
                         tuile = new TuileView();
                         if (view != null) {
                             tuile.addMouseListener(new CustomListener(view, new Coords(x, y)));
                         }
-                    } else{
+                    } else {
                         tuile = new TuileDominosView(false);
                     }
                 }
@@ -69,7 +69,7 @@ public class PlateauView extends JPanel {
 
         public void mouseClicked(MouseEvent e) {
             dominos.place(coord);
-            
+
         }
 
         public void mouseReleased(MouseEvent e) {
@@ -92,35 +92,35 @@ public class PlateauView extends JPanel {
         @Override
         public void mouseClicked(MouseEvent e) {
             // TODO Auto-generated method st
-            
-            if(tuile.getModel() == carc.getGame().getLastTuile()){
+
+            if (tuile.getModel() == carc.getGame().getLastTuile()) {
                 tuile.setPos(e.getX(), e.getY());
                 tuile.getModel().setPartisan(new Coords(e.getX(), e.getY()));
-            }           
+            }
         }
 
         @Override
         public void mouseEntered(MouseEvent e) {
             // TODO Auto-generated method stub
-            
+
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
             // TODO Auto-generated method stub
-            
+
         }
 
         @Override
         public void mousePressed(MouseEvent e) {
             // TODO Auto-generated method stub
-            
+
         }
 
         @Override
         public void mouseReleased(MouseEvent e) {
             // TODO Auto-generated method stub
-            
+
         }
     }
 
