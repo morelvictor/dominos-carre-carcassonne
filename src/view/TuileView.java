@@ -1,8 +1,6 @@
 package view;
 
 import javax.swing.*;
-import javax.swing.border.Border;
-import java.awt.event.*;
 import java.awt.*;
 import model.*;
 
@@ -12,9 +10,7 @@ public class TuileView extends JPanel {
 
     public TuileView(Tuile m) {
         model = m;
-
     }
-
 
     public TuileView() {
     }

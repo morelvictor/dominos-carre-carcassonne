@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import model.Plateau;
-import model.SideCarcassonne;
 import model.TuileCarcassonne;
 import model.TuileDominos;
 import model.Coords;
@@ -42,7 +41,7 @@ public class PlateauView extends JPanel {
                             tuile.addMouseListener(new CustomListener(view, new Coords(x, y)));
                         }
                     } else {
-                        tuile = new TuileDominosView(false);
+                        tuile = new TuileColorView(Color.gray);
                     }
                 }
                 add(tuile);
@@ -91,7 +90,6 @@ public class PlateauView extends JPanel {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-            // TODO Auto-generated method st
 
             if (tuile.getModel() == carc.getGame().getLastTuile()) {
                 tuile.setPos(e.getX(), e.getY());
@@ -101,25 +99,21 @@ public class PlateauView extends JPanel {
 
         @Override
         public void mouseEntered(MouseEvent e) {
-            // TODO Auto-generated method stub
 
         }
 
         @Override
         public void mouseExited(MouseEvent e) {
-            // TODO Auto-generated method stub
 
         }
 
         @Override
         public void mousePressed(MouseEvent e) {
-            // TODO Auto-generated method stub
 
         }
 
         @Override
         public void mouseReleased(MouseEvent e) {
-            // TODO Auto-generated method stub
 
         }
     }

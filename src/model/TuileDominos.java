@@ -2,12 +2,6 @@ package model;
 
 public class TuileDominos extends Tuile {
 
-	public Boolean fakeAndOk;
-
-	public TuileDominos(Boolean fao) {
-		fakeAndOk = fao;
-	}
-
 	public TuileDominos(int[] n, int[] e, int[] s, int[] w) {
 		this.n = new SideDominos(n);
 		this.e = new SideDominos(e);

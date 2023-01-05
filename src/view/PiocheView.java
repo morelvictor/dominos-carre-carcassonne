@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Color;
 import java.util.Stack;
 
 import model.*;
@@ -21,7 +22,7 @@ public class PiocheView extends TuileView {
             else
                 tuile = new TuileCarcassonneView((TuileCarcassonne) pioche.peek());
         }else{
-            tuile = new TuileDominosView(false);
+            tuile = new TuileColorView(Color.gray);
         }
         if(tuile != null)
             add(tuile);

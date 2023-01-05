@@ -30,10 +30,7 @@ public class TuileDominosView extends TuileView {
     Case w0;
 
     public TuileDominosView(TuileDominos m) {
-        this(m.fakeAndOk);
         this.model = m;
-
-        if (m.fakeAndOk == null) {
 
             n0 = new Case(((SideDominos) model.n).getTab()[0]);
             n1 = new Case(((SideDominos) model.n).getTab()[1]);
@@ -85,19 +82,7 @@ public class TuileDominosView extends TuileView {
             if (model.getPlacer() != null) {
                 setBackground(model.getPlacer().getColor());
             }
-        }
-    }
-
-    public TuileDominosView(Boolean reachable) {
-        super();
-        setOpaque(true);
-        if (reachable != null) {
-            if (reachable)
-                setBackground(Color.green);
-            else
-                setBackground(Color.gray);
-        }
-        setBorder(BorderFactory.createLineBorder(Color.black));
+        
     }
 
     @Override
