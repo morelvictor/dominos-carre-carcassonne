@@ -2,9 +2,10 @@ package view;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-
+import java.awt.event.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+
 
 import model.Coords;
 import model.SideCarcassonne;
@@ -13,11 +14,12 @@ import model.TuileCarcassonne;
 
 public class TuileCarcassonneView extends TuileView {
     TuileCarcassonne model;
-    
+
 
     public TuileCarcassonneView(TuileCarcassonne m) {
         super();
         model = m;
+
 /* 
         BufferedImage img = model.getI(); new BufferedImage(200, 200, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2 = img.createGraphics();
@@ -60,5 +62,4 @@ public class TuileCarcassonneView extends TuileView {
     public void update(){
         repaint();  
     }
-
 }
