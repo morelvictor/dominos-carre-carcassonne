@@ -100,9 +100,9 @@ public class Game {
 
 	public void rotatePioche() {
 		if(!sac.empty())
-		sac.peek().rotate();
+			sac.peek().rotate();
 		else
-		System.out.println("yapu");
+			System.out.println("yapu");
 	}
 
 }
