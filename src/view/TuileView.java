@@ -24,8 +24,8 @@ public class TuileView extends UpdatableView {
     public void resetT() {
         if (model instanceof TuileDominos) {
             t = new TuileDominosView((TuileDominos) model);
-        } else if (model instanceof TuileCarcassone) {
-            t = new TuileCarcassonneView((TuileCarcassone) model);
+        } else if (model instanceof TuileCarcassonne) {
+            t = new TuileCarcassonneView((TuileCarcassonne) model);
         }
     }
 
