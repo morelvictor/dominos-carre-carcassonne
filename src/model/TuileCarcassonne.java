@@ -23,8 +23,14 @@ public class TuileCarcassonne extends Tuile {
                     new File("src/assets/" + n.value + e.value + s.value + w.value + (bouclier ? "_" : "") + ".png"));
 
         } catch (IOException exn) {
-            System.out.println("Erreur lors du chargement de l'image");
-            System.exit(0);
+            try{
+                i = ImageIO.read(
+                    new File("src/assets/" + n.value + e.value + s.value + w.value + (bouclier ? "_" : "") + ".png"));
+            }catch(IOException exception){
+                System.out.println("Erreur lors du chargement de l'image");
+                System.exit(0);
+
+            }
         }
 
     }
