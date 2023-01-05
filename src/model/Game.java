@@ -70,6 +70,8 @@ public class Game {
 
 	public void ai() {
 		System.out.println("Ia joue");
+		if(sac.empty())
+			return;
 		for (int ii = 0; ii < 4; ii++) {
 			for (int x = plateau.min_x - 1; x <= plateau.max_x + 1; x++) {
 				for (int y = plateau.min_y - 1; y <= plateau.max_y + 1; y++) {
