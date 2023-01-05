@@ -31,6 +31,8 @@ public class PiocheView extends TuileView {
                 tuile = new TuileDominosView((TuileDominos) pioche.peek());
             else
                 tuile = new TuileCarcassonneView((TuileCarcassonne) pioche.peek());
+        }else{
+            tuile = new TuileDominosView(false);
         }
         if(tuile != null)
             add(tuile);
