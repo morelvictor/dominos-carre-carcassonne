@@ -27,9 +27,6 @@ public class PlayerSelector extends JPanel {
 				textField.setText("");
 				players.add(n);
 				update();
-				System.out.println("Ajouté " + players.size() + " " + n.getName());
-			} else {
-				System.out.println("Un joueur ne peut pas avoir de nom vide");
 			}
 		});
 
@@ -65,12 +62,10 @@ public class PlayerSelector extends JPanel {
 			remove.addActionListener((ActionEvent e) -> {
 				players.remove(p);
 				PlayerSelector.this.update();
-				System.out.println("Removed");
 			});
 
 			ai.addActionListener((ActionEvent e) -> {
 				player.setAi(ai.isSelected());
-				System.out.println("Ai toggled " + player.isAi());
 			});
 
 			setLayout(new FlowLayout());
