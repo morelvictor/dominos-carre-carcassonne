@@ -24,4 +24,12 @@ public class Coords {
 	public String toString() {
 		return "x: " + x + " y:" + y;
 	}
+
+	public int getX() {
+		return x;
+	}
+
+	public int getY() {
+		return y;
+	}
 }

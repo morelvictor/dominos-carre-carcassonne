@@ -7,6 +7,7 @@ import java.util.Stack;
 import model.SideCarcassonne.Sike;
 
 public class GameCarcassonne extends Game {
+    
 
     public GameCarcassonne() {
 
