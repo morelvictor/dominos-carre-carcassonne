@@ -6,17 +6,17 @@ import javax.swing.JLabel;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import model.Tuile;
-import model.TuileCarcassone;
+import model.TuileCarcassonne;
 
 public class TuileCarcassonneView extends TuileView {
-    TuileCarcassone model;
+    TuileCarcassonne model;
 
-    public TuileCarcassonneView(TuileCarcassone m) {
+    public TuileCarcassonneView(TuileCarcassonne m) {
         super();
         model = m;
-        
+
         model.getI();
-        BufferedImage img = new BufferedImage(100,100,BufferedImage.TYPE_INT_ARGB);
+        BufferedImage img = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2 = img.createGraphics();
 
         g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
@@ -24,7 +24,7 @@ public class TuileCarcassonneView extends TuileView {
         g2.dispose();
 
         ImageIcon icon = new ImageIcon(img);
-        
+
         JLabel j = new JLabel(icon);
         j.setVisible(true);
         add(j);
@@ -32,7 +32,7 @@ public class TuileCarcassonneView extends TuileView {
 
     @Override
     public void update() {
-        
+
     }
-    
+
 }

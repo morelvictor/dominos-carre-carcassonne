@@ -9,7 +9,6 @@ import javax.imageio.*;
 public class TuileCarcassonne extends Tuile {
     BufferedImage i;
     boolean bouclier;
-    Coords coordPartisan;
 
     public TuileCarcassonne(SideCarcassonne.Sike n, SideCarcassonne.Sike e, SideCarcassonne.Sike s,
             SideCarcassonne.Sike w, boolean bouclier) {
@@ -43,10 +42,6 @@ public class TuileCarcassonne extends Tuile {
         w = s;
         s = e;
         e = tmp;
-    }
-
-    public Coords getPartisanCoord() {
-        return coordPartisan;
     }
 
 }
