@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import model.Plateau;
+import model.TuileCarcassone;
 import model.Coords;
 
 public class PlateauView extends JPanel {
@@ -26,7 +27,13 @@ public class PlateauView extends JPanel {
                 Coords coord = new Coords(x, y);
                 TuileView tuile;
                 if (!model.isFree(coord)) {
+                    
                     tuile = new TuileView(model.get(coord));
+                    
+                    if(model.get(coord) instanceof TuileCarcassone){
+                        tuile.addMouseListener(new PartisanListener(view, new Coords(x, y), (TuileCarcassone) model.get(coord), tuile));
+                       
+                    }
                 } else {
                     if (model.isReachable(coord)) {
                         tuile = new TuileView(true);
@@ -43,6 +50,48 @@ public class PlateauView extends JPanel {
         }
         revalidate();
         repaint();
+    }
+
+    public class PartisanListener implements MouseListener {
+        GameView dominos;
+        Coords coord;
+        TuileCarcassone tuile;
+        TuileView tuileV;
+
+        public PartisanListener(GameView g, Coords c, TuileCarcassone t, TuileView tv) {
+            dominos = g;
+            coord = c;
+            tuile = t;
+            tuileV = tv;
+        }
+
+        public void mouseEntered(MouseEvent e) {
+        }
+
+        public void mousePressed(MouseEvent e) {
+        }
+
+        public void mouseClicked(MouseEvent e) {
+            
+            
+            if(tuile.getTab()[tuile.getPos() % tuile.getTab().length] != null){
+                tuile.getTab()[tuile.getPos() % tuile.getTab().length].setPartisan(false);
+            }
+
+            tuile.setPos(tuile.getPos() + 1);
+            
+            if(tuile.getTab()[tuile.getPos() % tuile.getTab().length] != null){
+                tuile.getTab()[tuile.getPos() % tuile.getTab().length].setPartisan(true);
+            }
+            
+            if(tuileV instanceof TuileCarcassonneView)  ((TuileCarcassonneView) tuileV).update();
+        }
+
+        public void mouseReleased(MouseEvent e) {
+        }
+
+        public void mouseExited(MouseEvent e) {
+        }
     }
 
     public class CustomListener implements MouseListener {

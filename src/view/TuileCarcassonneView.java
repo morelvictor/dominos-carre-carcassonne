@@ -5,23 +5,23 @@ import javax.swing.JLabel;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import model.Tuile;
+import model.SideCarcassonne;
 import model.TuileCarcassone;
 
 public class TuileCarcassonneView extends TuileView {
     TuileCarcassone model;
+    Graphics2D g2;
 
     public TuileCarcassonneView(TuileCarcassone m) {
         super();
         model = m;
-        
         model.getI();
         BufferedImage img = new BufferedImage(100,100,BufferedImage.TYPE_INT_ARGB);
-        Graphics2D g2 = img.createGraphics();
+        g2 = img.createGraphics();
 
         g2.setRenderingHint(RenderingHints.KEY_INTERPOLATION, RenderingHints.VALUE_INTERPOLATION_BILINEAR);
         g2.drawImage(model.getI(), 0, 0, 100, 100, null);
-        g2.dispose();
+        
 
         ImageIcon icon = new ImageIcon(img);
         
@@ -30,9 +30,15 @@ public class TuileCarcassonneView extends TuileView {
         add(j);
     }
 
+    
+
     @Override
     public void update() {
-        
+        g2.setColor(model.getPlacer().getColor());
+        if(((SideCarcassonne) model.getN()).getPartisan()) g2.drawArc(20, 5, 10, 10, 0, 360 ); g2.fillArc(20, 5, 10, 10, 0, 360 );
+        if(((SideCarcassonne) model.getS()).getPartisan()) g2.drawArc(20, 85, 10, 10, 0, 360 ); g2.fillArc(20, 85, 10, 10, 0, 360 );
+        if(((SideCarcassonne) model.getW()).getPartisan()) g2.drawArc(5, 20, 10, 10, 0, 360 ); g2.fillArc(5, 20, 10, 10, 0, 360 );
+        if(((SideCarcassonne) model.getE()).getPartisan()) g2.drawArc(85, 20, 10, 10, 0, 360 ); g2.fillArc(85, 20, 10, 10, 0, 360 );
+        System.out.println("update");
     }
-    
 }

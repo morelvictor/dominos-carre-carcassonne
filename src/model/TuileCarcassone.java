@@ -9,6 +9,8 @@ import javax.imageio.*;
 public class TuileCarcassone extends Tuile{
     BufferedImage i ;
     boolean bouclier;
+    int pos = 0;
+    SideCarcassonne[] tab;
 
     public TuileCarcassone(SideCarcassonne.Sike n, SideCarcassonne.Sike e, SideCarcassonne.Sike s, SideCarcassonne.Sike w, boolean bouclier){
         this.n = new SideCarcassonne(n);
@@ -16,6 +18,14 @@ public class TuileCarcassone extends Tuile{
         this.s = new SideCarcassonne(s);
         this.w = new SideCarcassonne(w);
         this.bouclier = bouclier;
+        tab = new SideCarcassonne[4];
+        
+        tab = new SideCarcassonne[5];
+        tab[0] = (SideCarcassonne) getN(); 
+        tab[1] = (SideCarcassonne) getE(); 
+        tab[2] = (SideCarcassonne) getS(); 
+        tab[3] = (SideCarcassonne) getW();
+        tab[4] = null;
         try{
             i = ImageIO.read(new File("src/assets/" + n.value + e.value + s.value + w.value + (bouclier ? "_" : "") + ".png"));
         
@@ -30,6 +40,18 @@ public class TuileCarcassone extends Tuile{
         return i;
     }
 
+    public int getPos() {
+        return pos;
+    }
+
+    public SideCarcassonne[] getTab() {
+        return tab;
+    }
+
+    public void setPos(int pos) {
+        this.pos = pos;
+    }
+
     @Override
     public void rotate() {
         i = Utils.rotate(i);    
@@ -42,4 +64,10 @@ public class TuileCarcassone extends Tuile{
         e = tmp;
     }
 
+    @Override
+    public Player getPlacer() {
+        return super.getPlacer();
+    }
+
+    
 }

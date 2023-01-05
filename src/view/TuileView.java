@@ -50,5 +50,4 @@ public class TuileView extends UpdatableView {
         revalidate();
         repaint();
     }
-
 }
