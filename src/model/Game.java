@@ -30,6 +30,8 @@ public class Game {
 	public Player nextPlayer() {
 		if (players.size() > 0) {
 			currentPlayer += 1;
+			System.out.println("Nombre de joueurs: " + players.size());
+			System.out.println(players.get(currentPlayer % players.size()));
 			return players.get(currentPlayer % players.size());
 		}
 		return null;
@@ -63,7 +65,7 @@ public class Game {
 		Player next = peekPlayer();
 		if (next.isAi())
 			ai();
-		currentPlayer = (((currentPlayer - 1) % players.size()) + players.size()) % players.size();
+		//currentPlayer = (((currentPlayer - 1) % players.size()) + players.size()) % players.size();
 	}
 
 	public void ai() {
@@ -91,11 +93,16 @@ public class Game {
 			sac.pop();
 			nextPlayer();
 			iaLoader();
+		}else{
+			System.out.println("Yapu");
 		}
 	}
 
 	public void rotatePioche() {
+		if(!sac.empty())
 		sac.peek().rotate();
+		else
+		System.out.println("yapu");
 	}
 
 }

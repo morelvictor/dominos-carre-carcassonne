@@ -5,32 +5,15 @@ import javax.swing.*;
 import java.awt.*;
 import model.*;
 
-public class TuileView extends UpdatableView {
+public class TuileView extends JPanel {
     Dimension preferredSize = new Dimension(100, 100);
-    int x = 0;
-    int y = 0;
-    UpdatableView t;
     Tuile model;
 
     public TuileView(Tuile m) {
         model = m;
-        resetT();
-        add(t);
     }
 
     public TuileView() {
-    }
-
-    public void resetT() {
-        if (model instanceof TuileDominos) {
-            t = new TuileDominosView((TuileDominos) model);
-        } else if (model instanceof TuileCarcassonne) {
-            t = new TuileCarcassonneView((TuileCarcassonne) model);
-        }
-    }
-
-    public TuileView(boolean isReachable) {
-        add(new TuileDominosView((Boolean) isReachable));
     }
 
     @Override
@@ -40,15 +23,6 @@ public class TuileView extends UpdatableView {
 
     public Dimension getPreferredSize() {
         return preferredSize;
-    }
-
-    @Override
-    public void update() {
-        remove(t);
-        resetT();
-        add(t);
-        revalidate();
-        repaint();
     }
 
 }
