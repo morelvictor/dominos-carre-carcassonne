@@ -30,9 +30,6 @@ public class TuileCarcassonneView extends TuileView {
         add(j);
     }
 
-    @Override
-    public void update() {
-
-    }
+    public void update(){}
 
 }

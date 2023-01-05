@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import model.Plateau;
+import model.TuileCarcassonne;
+import model.TuileDominos;
 import model.Coords;
 
 public class PlateauView extends JPanel {
@@ -26,18 +28,20 @@ public class PlateauView extends JPanel {
                 Coords coord = new Coords(x, y);
                 TuileView tuile;
                 if (!model.isFree(coord)) {
-                    tuile = new TuileView(model.get(coord));
+                    if(model.get(coord) instanceof TuileDominos)
+                        tuile = new TuileDominosView((TuileDominos) model.get(coord));
+                    else
+                        tuile = new TuileCarcassonneView((TuileCarcassonne) model.get(coord));
                 } else {
                     if (model.isReachable(coord)) {
-                        tuile = new TuileView(true);
+                        tuile = new TuileView();
                         if (view != null) {
                             tuile.addMouseListener(new CustomListener(view, new Coords(x, y)));
                         }
-                    } else
-                        tuile = new TuileView(false);
+                    } else{
+                        tuile = new TuileDominosView(false);
+                    }
                 }
-                tuile.x = x;
-                tuile.y = y;
                 add(tuile);
             }
         }
