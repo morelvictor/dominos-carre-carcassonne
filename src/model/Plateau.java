@@ -40,7 +40,6 @@ public class Plateau extends HashMap<Coords, Tuile> {
 		tab[0] = 9;
 		tab[1] = 9;
 		tab[2] = 9;
-		TuileDominos vide = new TuileDominos(tab, tab, tab, tab);
 
 		int l = min_y - 1;
 
