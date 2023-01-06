@@ -93,9 +93,13 @@ public class PlateauView extends JPanel {
 
             if (tuile.getModel() == carc.getGame().getLastTuile()) {
                 if(carc.getGame().peekPlayer().getPartisans() > 0){
-                    tuile.setPos(e.getX(), e.getY());
-                    tuile.getModel().setPartisan(new Coords(e.getX(), e.getY()));
-                    carc.getGame().peekPlayer().removePartisan();
+                    if(tuile.model.getPartisan() == null)
+                        carc.getGame().peekPlayer().removePartisan();
+                    System.out.println((((float) e.getX())*(1000f/((float) tuile.getWidth()))));
+                    System.out.println((((float) e.getY())*(1000f/((float) tuile.getHeight()))));
+                    tuile.setPos((int) (((float) e.getX())*(1000f/((float) tuile.getWidth()))), (int) (((float) e.getY())*(1000f/((float) tuile.getHeight()))));
+                    tuile.getModel().setPartisan(new Coords((int) (((float) e.getX())*(1000f/((float) tuile.getWidth()))), (int) (((float) e.getY())*(1000f/((float) tuile.getHeight())))));
+                    tuile.repaint();
                 }
             }
         }
