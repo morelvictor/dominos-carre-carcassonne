@@ -8,17 +8,31 @@ public class Terminal {
 	public static void launch() {
 		GameDominos g = new GameDominos();
 		Scanner sc = new Scanner(System.in);
-		Player currentPlayer = g.nextPlayer();
+		System.out.println("Voulez-vous ajouter un adversaire à Victor ? (Oui/Non) ");
+		if(sc.next().equalsIgnoreCase("oui")) {
+			System.out.println("Entrez son nom: ");
+			Player p = new Player(sc.next());
+			g.getPlayers().add(p);
+			System.out.println("Voulez-vous que ce soit une IA ? (Oui/Non) ");
+			if(sc.next().equalsIgnoreCase("oui")) {
+				p.setAi(true);
+			}
+		}
+		System.out.println("Les joueurs sont :");
+		for(Player p : g.getPlayers()){
+			System.out.println(p.getName());
+		}
 		while (g.getSac().size() > 0) {
 			System.out.println(g.getPlateau());
 			System.out.println("Pioche: \n" + g.getSac().peek());
-			System.out.println("\n" + currentPlayer.getName() + " que voulez vous faire ?\n" +
+			System.out.println("\n" + g.peekPlayer().getName() + " que voulez vous faire ?\n" +
 					"D : Defausser\n" +
 					"T : Tourner la tuile\n" +
 					"P : Placer une tuile");
 			String str = sc.next();
-			if (str.equals("D"))
+			if (str.equals("D")){
 				g.defausser();
+			}
 			else if (str.equals("T"))
 				g.getSac().peek().rotate();
 			else {
@@ -28,12 +42,12 @@ public class Terminal {
 				int i = sc.nextInt();
 				int b = g.getPlateau().isValid(new Coords(i, j), g.getSac().peek());
 				if (b != -1) {
-					g.getPlateau().place(new Coords(i, j), g.getSac().pop());
-					g.nextPlayer();
+					g.place(new Coords(i, j));
 					g.getSac().pop();
 				} else {
 					System.out.println("Déplacement non autorisé");
 				}
+				
 			}
 		}
 
