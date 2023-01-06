@@ -12,7 +12,7 @@ public class TuileCarcassonne extends Tuile {
     Coords partisan;
 
     public TuileCarcassonne(SideCarcassonne.Sike n, SideCarcassonne.Sike e, SideCarcassonne.Sike s,
-            SideCarcassonne.Sike w, boolean bouclier) {
+        SideCarcassonne.Sike w, boolean bouclier) {
         this.n = new SideCarcassonne(n);
         this.e = new SideCarcassonne(e);
         this.s = new SideCarcassonne(s);

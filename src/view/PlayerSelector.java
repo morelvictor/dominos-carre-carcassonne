@@ -71,6 +71,7 @@ public class PlayerSelector extends JPanel {
 			setLayout(new FlowLayout());
 
 			add(remove);
+			ai.setSelected(p.isAi());
 			add(ai);
 			add(new JLabel(player.getName()));
 		}

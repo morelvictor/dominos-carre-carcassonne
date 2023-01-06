@@ -6,7 +6,7 @@ import java.util.Stack;
 public class GameDominos extends Game {
 	static final int min_range = 1;
 	static final int max_range = 2;
-	static final int num_tuile = 15;
+	static final int num_tuile = 40;
 
 	public GameDominos() {
 		sac = new Stack<>();
@@ -25,22 +25,7 @@ public class GameDominos extends Game {
 		load();
 	}
 
-	@Override
-	public Plateau getPlateau() {
-		return super.getPlateau();
-	}
-
-	@Override
-	public Stack<Tuile> getSac() {
-		return super.getSac();
-	}
-
 	public static int getNumTuile() {
 		return num_tuile;
-	}
-
-	@Override
-	public ArrayList<Player> getPlayers() {
-		return super.getPlayers();
 	}
 }

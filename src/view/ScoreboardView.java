@@ -22,7 +22,10 @@ public class ScoreboardView extends JPanel {
 		Collections.sort(players);
 		removeAll();
 		for (Player p : players) {
-			add(new JLabel(p.getPoints() + " - " + p.getName()));
+			JLabel label = new JLabel(p.getPoints() + " - " + p.getName());
+			label.setOpaque(true);
+			label.setBackground(p.getColor());
+			add(label);
 		}
 		revalidate();
 		repaint();
