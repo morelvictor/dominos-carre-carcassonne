@@ -105,5 +105,9 @@ public class Game {
 	public void setLastTuile(Tuile lastTuile) {
 		this.lastTuile = lastTuile;
 	}
+
+    public void abandon() {
+		players.remove(peekPlayer());
+    }
 	
 }

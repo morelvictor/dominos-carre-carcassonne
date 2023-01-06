@@ -20,11 +20,12 @@ public class GameView extends JPanel {
         plateauView = new PlateauView(this, game.plateau);
 
         container = new JPanel();
-        scoreboard = new ScoreboardView(game.getPlayers());
+        scoreboard = new ScoreboardView(game.getPlayers(), game);
         container.setLayout(new GridBagLayout());
         pioche = new PiocheView(game.sac);
         JButton defausse = new JButton("Défausser");
         JButton rotate = new JButton("Rotate");
+        JButton abandon = new JButton("Abandonner");
 
         defausse.addActionListener((ActionEvent e) -> {
             defausser();
@@ -32,6 +33,10 @@ public class GameView extends JPanel {
 
         rotate.addActionListener((ActionEvent e) -> {
             rotate();
+        });
+
+        abandon.addActionListener((ActionEvent e) ->{
+            abandon();
         });
 
         setLayout(new BorderLayout());
@@ -53,9 +58,10 @@ public class GameView extends JPanel {
         container.add(defausse, gc);
         gc.gridy = 2;
         container.add(rotate, gc);
-
-        gc.gridx = 0;
         gc.gridy = 3;
+        container.add(abandon, gc);
+        gc.gridx = 0;
+        gc.gridy = 4;
         gc.weightx = 2;
         gc.weighty = 3;
 
@@ -90,5 +96,11 @@ public class GameView extends JPanel {
         tour.setText("C'est au tour de: " + game.peekPlayer().getName());
         scoreboard.update();
         game.setLastTuile(game.getPlateau().getTuile(c));
+    }
+
+    public void abandon(){
+        game.abandon();
+        tour.setText("C'est au tour de: " + game.peekPlayer().getName());
+        scoreboard.update();
     }
 }
