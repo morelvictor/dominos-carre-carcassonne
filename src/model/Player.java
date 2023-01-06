@@ -7,6 +7,7 @@ public class Player implements Comparable<Player> {
 	int points;
 	boolean isAi;
 	Color color = Color.white;
+	int partisans = 3;
 
 	public Player(String n) {
 		this(n, false);
@@ -55,4 +56,12 @@ public class Player implements Comparable<Player> {
 	public int compareTo(Player p) {
 		return p.getPoints() - points;
 	}
+
+	public int getPartisans() {
+		return partisans;
+	}
+
+    public void removePartisan() {
+		partisans -= 1;
+    }
 }
