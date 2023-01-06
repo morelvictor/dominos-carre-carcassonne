@@ -92,8 +92,11 @@ public class PlateauView extends JPanel {
         public void mouseClicked(MouseEvent e) {
 
             if (tuile.getModel() == carc.getGame().getLastTuile()) {
-                tuile.setPos(e.getX(), e.getY());
-                tuile.getModel().setPartisan(new Coords(e.getX(), e.getY()));
+                if(carc.getGame().peekPlayer().getPartisans() > 0){
+                    tuile.setPos(e.getX(), e.getY());
+                    tuile.getModel().setPartisan(new Coords(e.getX(), e.getY()));
+                    carc.getGame().peekPlayer().removePartisan();
+                }
             }
         }
 
