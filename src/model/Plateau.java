@@ -145,14 +145,6 @@ public class Plateau extends HashMap<Coords, Tuile> {
 		return false;
 	}
 
-	public boolean isVide(Coords c) {
-		for (Coords cs : near(c)) {
-			if (isFree(cs))
-				return true;
-		}
-		return false;
-	}
-
 	public int isValid(Coords c, Tuile t) {
 		if (!isReachable(c))
 			return -1;
