@@ -60,10 +60,11 @@ public class Game {
 	}
 
 	public void iaLoader() {
-		Player next = peekPlayer();
-		if (next.isAi())
-			ai();
-		//currentPlayer = (((currentPlayer - 1) % players.size()) + players.size()) % players.size();
+		if(!players.isEmpty()){
+			Player next = peekPlayer();
+			if (next.isAi())
+				ai();
+		}
 	}
 
 	public void ai() {
