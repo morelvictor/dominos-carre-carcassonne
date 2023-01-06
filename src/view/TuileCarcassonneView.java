@@ -27,8 +27,6 @@ public class TuileCarcassonneView extends TuileView {
         if(model.getPlacer()!= null) g.setColor(model.getPlacer().getColor());
         if(model.getPartisan() != null) {
             int rayon = this.getWidth()/20;
-            System.out.println("alaa" + getWidth());
-            System.out.println("alo" + getHeight());
             g.fillOval((int)((((float) model.getPartisan().getX()) * ((float)getWidth() / 1000f))) - rayon, (int)((((float) model.getPartisan().getY()) * ((float)getHeight() / 1000f))) - rayon, rayon * 2, rayon * 2);
         }
         

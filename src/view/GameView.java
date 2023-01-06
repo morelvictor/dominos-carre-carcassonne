@@ -74,33 +74,42 @@ public class GameView extends JPanel {
     }
 
     public void defausser() {
-        game.defausser(); // Ok
-        plateauView.update();
-        pioche.update();
-        tour.setText("C'est au tour de: " + game.peekPlayer().getName());
-        scoreboard.update();
+        if(!game.players.isEmpty()){
+            game.defausser(); // Ok
+            plateauView.update();
+            pioche.update();
+            tour.setText("C'est au tour de: " + game.peekPlayer().getName());
+            scoreboard.update();
+        }
     }
 
     public void rotate() {
-        game.rotatePioche();
-        plateauView.update();
-        pioche.update();
-        tour.setText("C'est au tour de: " + game.peekPlayer().getName());
-        scoreboard.update();
+        if(!game.players.isEmpty()){
+            game.rotatePioche();
+            plateauView.update();
+            pioche.update();
+            tour.setText("C'est au tour de: " + game.peekPlayer().getName());
+            scoreboard.update();
+        }
     }
 
     public void place(Coords c) {
-        game.place(c);
-        plateauView.update();
-        pioche.update();
-        tour.setText("C'est au tour de: " + game.peekPlayer().getName());
-        scoreboard.update();
-        game.setLastTuile(game.getPlateau().getTuile(c));
+        if(!game.players.isEmpty()){
+            game.place(c);
+            plateauView.update();
+            pioche.update();
+            tour.setText("C'est au tour de: " + game.peekPlayer().getName());
+            scoreboard.update();
+            game.setLastTuile(game.getPlateau().getTuile(c));
+        }
     }
 
     public void abandon(){
-        game.abandon();
-        tour.setText("C'est au tour de: " + game.peekPlayer().getName());
-        scoreboard.update();
+        if(!game.players.isEmpty()){
+            game.abandon();
+            tour.setText(game.peekPlayer() != null ? "C'est au tour de: " + game.peekPlayer().getName() : "Tous les joueurs ont abandonnés");
+            scoreboard.update();
+            plateauView.update();
+        }
     }
 }
