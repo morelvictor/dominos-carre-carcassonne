@@ -3,14 +3,17 @@ package view;
 import javax.swing.*;
 import java.util.ArrayList;
 import model.Player;
+import model.Game;
 import java.util.Collections;
 
 public class ScoreboardView extends JPanel {
+	Game game;
 	ArrayList<Player> players;
 
-	public ScoreboardView(ArrayList<Player> p) {
+	public ScoreboardView(ArrayList<Player> p, Game g) {
 		super();
 		players = new ArrayList<>();
+		game = g;
 		for (Player pl : p) {
 			players.add(pl);
 		}
@@ -22,7 +25,7 @@ public class ScoreboardView extends JPanel {
 		Collections.sort(players);
 		removeAll();
 		for (Player p : players) {
-			JLabel label = new JLabel(p.getPoints() + " - " + p.getName());
+			JLabel label = new JLabel(p.getPoints() + " - " + p.getName() + (!game.players.contains(p) ? " (abandonné)" : ""));
 			label.setOpaque(true);
 			label.setBackground(p.getColor());
 			add(label);

@@ -45,7 +45,7 @@ public class Game {
 
 	public int place(Coords c) {
 		int p = -1;
-		if (players.size() != 0) {
+		if (!players.isEmpty()) {
 			if (!sac.empty()) {
 				p = plateau.place(c, sac.peek());
 				if (p > -1) {
@@ -85,17 +85,20 @@ public class Game {
 	}
 
 	public void defausser() {
-		if (!sac.empty()) {
-			sac.pop();
-			nextPlayer();
-			iaLoader();
+		if(!players.isEmpty()){
+			if (!sac.empty()) {
+				sac.pop();
+				nextPlayer();
+				iaLoader();
+			}
+			lastTuile = null;
 		}
-		lastTuile = null;
 	}
 
 	public void rotatePioche() {
-		if(!sac.empty())
-			sac.peek().rotate();
+		if(!players.isEmpty())
+			if(!sac.empty())
+				sac.peek().rotate();
 	}
 
 	public Tuile getLastTuile() {
@@ -105,5 +108,13 @@ public class Game {
 	public void setLastTuile(Tuile lastTuile) {
 		this.lastTuile = lastTuile;
 	}
+
+    public void abandon() {
+		if(!players.isEmpty()){
+			players.remove(peekPlayer());
+			currentPlayer += 1;
+			iaLoader();
+		}
+    }
 	
 }
