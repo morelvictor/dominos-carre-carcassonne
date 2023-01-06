@@ -110,6 +110,7 @@ public class GameView extends JPanel {
             tour.setText(game.peekPlayer() != null ? "C'est au tour de: " + game.peekPlayer().getName() : "Tous les joueurs ont abandonnés");
             scoreboard.update();
             plateauView.update();
+            pioche.update();
         }
     }
 }
